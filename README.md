@@ -1,3 +1,3 @@
 # girlfriend.github.io
 This is Pyton Virtual Girlfriend 
-  - talk to you
+  - Talk to you
