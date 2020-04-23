@@ -1,19 +1,29 @@
 #!/usr/bin/python3
 #-*- coding:utf-8 -*-
 import os
+import time
+import random
 clear = lambda: os.system('cls' if os.name=='nt'else 'clear')
 clear()
-print('Helló az én nevem Kasszandra')
+greatings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
+rnd = random.choice(greatings);
+time.sleep(3)
+print(rnd+' az én nevem Kasszandra')
+time.sleep(2)
 nev = input("Téged hogy hívnak?: ")
+while len(nev)== 0:
+  clear()
+  print(rnd+' az én nevem Kasszandra')  
+  nev = input("Téged hogy hívnak?: ")
+  
 eletkor = int(input("Hány éves vagy?: "))
-if eletkor < 20:
-  print("Szia {}.".format(nev))
-else:
-   print("Helló {}.".format(nev))
-
+greatings2 = ['Szia','Helló','Halli'];
+rnd = random.choice(greatings2);
+print(rnd+ " {}.".format(nev))
+time.sleep(2)
 print('Milyen színű haj tetsszik neked?\n 1.Vörös \n 2.Barna \n 3.Fekete \n 4.Szöke \n 5.Őssz')
 haj_szin = int( input ('Válasz egy számot: '))
-    
+time.sleep(1)
 print('Milyen haj viselet teszik: \n 1.Rövid Göndör \n 2.Rövid Egyenes \n 3.Rövid Hulámos \n 4.Hosszú Egyenes \n 5.Hosszú Hulámos \n 6.Hosszú Göndör ')
 haj_viselet = int(input ('Válasz egy számot: '))
 #Hajviselet 1
@@ -92,9 +102,9 @@ elif haj_szin == 4 and haj_viselet == 6:
   print('Nekem Pont Szőke és Hosszú Göndör a Hajam')
 elif haj_szin == 5 and haj_viselet == 6:
   print('Nekem Pont Őssz és Hosszú Göndör a Hajam')
-
-
-
+  
+  
+time.sleep(3)
 print('Szeretsz engem? \n Igen \n Nem ')
 
 
@@ -102,13 +112,21 @@ szeret = input('Mit választasz: ')
 
 if  szeret.casefold() == "igen" :
    print('Én is Szeretlek')
+   with open("./datas.txt", "a") as f:
+     szoveg= '\n------------- \nNév: {} \nÉletkor: {}'.format(nev,eletkor)+'\n-------------\n\n'
+     f.write(szoveg)
+     f.close
 else:
   print('Oké, Erre majd visszatérünk')
-
-
-with open("./datas.txt", "w") as f:
-   szoveg = 'Név: {}\nÉletkor: {}'.format(nev, eletkor)+'\n'
-   f.write(szoveg)
-
-f.close()
+  time.sleep(4)
+  szin = input('Melyk a Kedvenc Szined ?:')
+  time.sleep(1)
+  print ('Nekem is a '+szin+ ' a kedvencem')
+goodbyes = ['Viszlát','Szia','Helló']
+rnd = random.choice(goodbyes)
+time.sleep(3)
+print(rnd+ " {}.".format(nev))
+time.sleep(2)
 exit()
+
+
