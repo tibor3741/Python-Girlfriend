@@ -1,68 +1,112 @@
 #!/usr/bin/python3
 #-*- coding:utf-8 -*-
+
 import os
 import time
 import random
-clear = lambda: os.system('cls' if os.name=='nt'else 'clear')
-clear()
-greatings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
-rnd1 = random.choice(greatings);
-time.sleep(3)
-print(rnd1+' az én nevem Kasszandra')
-time.sleep(2)
-nev = input("Téged hogy hívnak?: ")
-while len(nev)== 0:
-  clear()
-  print(rnd1+' az én nevem Kasszandra')  
-  nev = input("Téged hogy hívnak?: ")
-  
-eletkor = int(input("Hány éves vagy?: "))
-greatings2 = ['Szia','Helló','Halli'];
-rnd2 = random.choice(greatings2);
-print(rnd2+ " {}.".format(nev))
-time.sleep(2)
-print('Milyen színű haj tetsszik neked?\n 1.Vörös \n 2.Barna \n 3.Fekete \n 4.Szöke \n 5.Őssz')
-haj_szin = int(input("válasz egy számot: "))
-time.sleep(1)
-print('Milyen haj viselet teszik: \n 1.Rövid Göndör \n 2.Rövid Egyenes \n 3.Rövid Hullámos\n 4.Hosszú Egyenes \n 5.Hosszú Hulámos \n 6.Hosszú Göndör ')
-haj_viselet = int(input ('Válasz egy számot: '))
-haj_szinek = ["","Vörös", "Barna", "Fekete","Szőke", "Ősz"]
-haj_viseletek = ["","Rövid Göndör","Rövid Egyenes","Rövid Hulámos","Hosszú Egyenes","Hosszú Hulámos","Hosszú Göndör"]
-print("Nekem Pont "+ haj_szinek[haj_szin]+" és "+  haj_viseletek[haj_viselet]+" a Hajam")
-time.sleep(3)
-print('Szeretsz engem? \n Igen \n Nem ')
-szeret = input('Mit választasz: ')
-while len(szeret)== 0:
-  clear()
-  print(rnd1 +' az én nevem Kasszandra')
-  print("Téged hogy hívnak {}".format(nev))
-  print('Milyen színű haj tetsszik neked?\n 1.Vörös \n 2.Barna \n 3.Fekete \n 4.Szöke \n 5.Őssz')
-  print('Válasz egy számot: {}'.format(haj_viselet))
-  print('Milyen haj viselet teszik: \n 1.Rövid Göndör \n 2.Rövid Egyenes \n 3.Rövid Hullámos\n 4.Hosszú Egyenes \n 5.Hosszú Hulámos \n 6.Hosszú Göndör ')
-  print('Válasz egy számot: {}'.format(haj_szin))
-  print("Nekem Pont "+ haj_szinek[haj_szin]+" és "+  haj_viseletek[haj_viselet]+" a Hajam")
 
-  print('Szeretsz engem? \n Igen \n Nem ')
-  szeret = input('Mit választasz: ')
+# Függvények
+# ==========
+
+# Képernyő törlése
+clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
+
+# Egy szöveges kérdés
+def kerdez(kerdes):
+	valasz = input(kerdes)
+	while len(valasz)== 0:
+		print('Mondd el légyszi! ')
+		valasz = input(kerdes)
+	return valasz
+
+# Választás egy listából a sorszám használatávan
+def valaszt(kerdes, opciok):
+	print(kerdes)
+	for i in range(len(opciok)):
+		print(str(i+1) + '. ' + opciok[i])
+	valasz = int(input('Válassz egy számot: ')) - 1
+	while valasz < 0 or valasz >= len(opciok):
+		print('Ilyen sorszámú opció nincs! ')
+		valasz = int(input('Válassz egy számot: ')) - 1
+	return valasz
+
+# Eldönti, hogy igen, vagy nem
+def eldont(kerdes):
+	while True:
+		valasz = input(kerdes).casefold()
+		if valasz in ['i', 'igen', 'persze', 'nagyon']:
+			return True
+		elif valasz in ['n', 'nem', 'dehogy']:
+			return False
+		else:
+			print('Ezt nem értem. ')
+
+# Fájlhoz hozzáad valamit
+def rekord(nev, eletkor):
+	f = open('./datas.txt', 'a')
+	f.write('Név: ' + nev + '\nÉletkor: ' + str(eletkor) +'\n\n-------------\n\n')
+	f.close()
 
 
-  
+# Változók
+# ========
 
-if  szeret.casefold() == "igen" :
-   print('Én is Szeretlek')
-   with open("./datas.txt", "a") as f:
-     szoveg= '\n------------- \nNév: {} \nÉletkor: {}'.format(nev,eletkor)+'\n-------------\n\n'
-     f.write(szoveg)
-     f.close
-else:
-  print('Oké, Erre majd visszatérünk')
-  time.sleep(4)
-  szin = input('Melyk a Kedvenc Szined ?:')
-  time.sleep(1)
-  print ('Nekem is a '+szin+ ' a kedvencem')
+# Kommunikációs részek
+greetings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
 goodbyes = ['Viszlát','Szia','Helló']
-rnd = random.choice(goodbyes)
+
+# Beállítások
+haj_szinek = ['Vörös', 'Barna','Szőke', 'Fekete', 'Ősz']
+haj_hosszok = ['Rövid', 'Vállig érő', 'Hosszú']
+haj_viseletek = ['Göndör', 'Egyenes','Hullámos']
+
+
+# Fő ciklus
+# =========
+clear()
 time.sleep(3)
-print(rnd+ " {}.".format(nev))
+# Üdvözlés
+print(random.choice(greetings), 'az én nevem Kasszandra.')
 time.sleep(2)
+# Alapadatok
+nev = kerdez('Téged hogy hívnak? ')
+eletkor = int(kerdez('Hány éves vagy? '))
+
+# Üdvözlés a név használatával
+print(random.choice(greetings), nev)
+time.sleep(2)
+# Először nem szeret
+szeret = False
+
+# Addig kérdezgetjük, amíg nem mondja, hogy szeret
+time.sleep(2)
+while not szeret:
+        
+	# Nőideál
+	haj_szin = valaszt('Milyen színű haj tetszik neked?', haj_szinek)
+	haj_hossz = valaszt('Milyen hosszú haj tetszik neked?', haj_hosszok)
+	haj_viselet = valaszt('Milyen haj viselet teszik?', haj_viseletek)
+
+	# Nahát, pont ilyen a hajam :D
+	print('Nekem Pont', haj_szinek[haj_szin], 'és', haj_hosszok[haj_hossz], haj_viseletek[haj_viselet], 'a Hajam')
+	# Megkérdezzük, hogy szeret-e
+	time.sleep(3)
+	szeret = eldont('Szeretsz engem? ')
+	if not szeret:
+		print('Oké, Erre majd visszatérünk')
+		time.sleep(4)
+                       
+# Itt már kilépett a ciklusból, szóval biztos, hogy szeret
+print('Én is Szeretlek')
+rekord(nev, eletkor)
+
+# Kedvenc szín
+szin = kerdez('Melyik a kedvenc színed? ')
+print('Nekem is a', szin, 'a kedvencem')
+
+# Elköszönés
+print('Most mennem kell')
+print(random.choice(goodbyes), nev)
+
 exit()
+
