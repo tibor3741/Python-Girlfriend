@@ -103,7 +103,7 @@ rekord(nev, eletkor)
 # Kedvenc szín
 szin = kerdez('Melyik a kedvenc színed? ')
 print('Nekem is a', szin, 'a kedvencem')
-
+time.sleep(1)
 # Elköszönés
 print('Most mennem kell')
 print(random.choice(goodbyes), nev)
