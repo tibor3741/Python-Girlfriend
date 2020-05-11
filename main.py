@@ -74,23 +74,23 @@ time.sleep(2)
 nev = kerdez('Téged hogy hívnak? ')
 eletkor = int(kerdez('Hány éves vagy? '))
 
-#ilyen felhasználó van vagy nincs 
-for i in range(len(nev_adat)):
-        if (nev == nev_adat[i]):
-           #van ilyen
-            print('Űdvözöllek újra')
-            user = user_kerdez('')
-            if(user=="szia"or"helló"or"Szia""Helló"):
-                print(random.close(greetings), nev)
-            user = user_kerdez('')
-            if(user=="hogy vagy?"or"hogy érzed magad?"):
-                print(random.close(how_are_you))
-            user = user_kerdez('')
-            if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
-                print(random.close(how_was_your_day))
+#ilyen felhasználó van vagy nincs
+if (nev in nev_adat):
+        #van ilyen
+        print('Űdvözöllek újra')
+        user = user_kerdez('')
+        if(user=='szia' or 'helló' or 'Szia' or 'Helló'):
+                print(random.choice(greetings), nev)
+        user = user_kerdez('')
+        if(user=="hogy vagy?"or"hogy érzed magad?"):
+                print(random.choice(how_are_you))
+        user = user_kerdez('')
+        if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
+                print(random.choice(how_was_your_day))
         #már vége a kérdezésnek
         print('mennem kell')
-        print('szaladok')
+        print('Szia')
+        
         exit()
 else:
         #nincs ilyen
@@ -132,4 +132,7 @@ else:
         print(random.choice(goodbyes), nev)
 exit()
 
+
+
+                
 
