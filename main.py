@@ -1,3 +1,60 @@
+#!/usr/bin/python3
+#-*- coding:utf-8 -*-
+
+import os
+import time
+import random
+
+# Függvények
+# ==========
+# Képernyő törlése
+clear = lambda: os.system('cls' if os.name=='nt' else 'clear')             
+
+#Egy Szöveges kérdés a felhasználótól
+def user_kerdez(kerdes):
+        valasz = input(kerdes)
+        while len(valasz)== 0:
+                print('Mit akartál kérdezni ?')
+                valasz = input(kerdes)
+        return valasz  
+#Egy szöveges Kérsdés    
+def kerdez(kerdes):
+        valasz = input(kerdes)
+        while len(valasz)== 0:
+                print('Mondd el légyszi! ')
+                valasz = input(kerdes)
+        return valasz
+# Választás egy listából a sorszám használatávan
+def valaszt(kerdes, opciok):
+    print(kerdes)
+    for i in range(len(opciok)):
+        print(str(i+1) + '. ' + opciok[i])
+    valasz = int(input('Válassz egy számot: ')) - 1
+    while valasz < 0 or valasz >= len(opciok):
+        print('Ilyen sorszámú opció nincs! ')
+        valasz = int(input('Válassz egy számot: ')) - 1
+    return valasz
+
+# Eldönti, hogy igen, vagy nem
+def eldont(kerdes):
+        while True:
+            valasz = input(kerdes).casefold()
+            if valasz in ['i', 'igen', 'persze', 'nagyon']:
+                return True
+            elif valasz in ['n', 'nem', 'dehogy']:
+                return False
+            else:
+                print('Ezt nem értem. ')
+
+
+
+#Változók
+#--------------------------------------
+# Beállítások
+haj_szinek = ['Vörös', 'Barna','Szőke', 'Fekete', 'Ősz']
+haj_hosszok = ['Rövid', 'Vállig érő', 'Hosszú']
+haj_viseletek = ['Göndör', 'Egyenes','Hullámos']
+# Kommunikációs részek
 greetings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
 goodbyes = ['Viszlát','Szia','Helló']
 how_are_you = ['Jól','Fantasztikusan','Rosszul','Hiányoztál','Ha veled lehetek akkor jól'];
@@ -35,6 +92,8 @@ if (nev in nev_adat):
         user = user_kerdez('')
         if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
                 print(random.choice(how_was_your_day))
+        else:
+               print('erre nem tudom a választ')
         if(user=="szeretsz?"or'szeretel?'or'szeretszengem?'):
                 print(random.choice(love_me))
         else:
@@ -70,7 +129,6 @@ else:
                 if not szeret:
                         print('Oké, Erre majd visszatérünk')
                         time.sleep(4)
-                               
         # Itt már kilépett a ciklusból, szóval biztos, hogy szeret
         print('Én is Szeretlek')
         rekord(nev, eletkor)
