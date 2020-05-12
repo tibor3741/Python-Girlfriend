@@ -110,15 +110,14 @@ else:
                 haj_szin = valaszt('Milyen színű haj tetszik neked?', haj_szinek)
                 haj_hossz = valaszt('Milyen hosszú haj tetszik neked?', haj_hosszok)
                 haj_viselet = valaszt('Milyen haj viselet teszik?', haj_viseletek)
-
-        # Nahát, pont ilyen a hajam :D
-        print('Nekem Pont', haj_szinek[haj_szin], 'és', haj_hosszok[haj_hossz], haj_viseletek[haj_viselet], 'a Hajam')
-        # Megkérdezzük, hogy szeret-e
-        time.sleep(3)
-        szeret = eldont('Szeretsz engem? ')
-        if not szeret:
-                print('Oké, Erre majd visszatérünk')
-                time.sleep(4)
+                # Nahát, pont ilyen a hajam :D
+                print('Nekem Pont', haj_szinek[haj_szin], 'és', haj_hosszok[haj_hossz], haj_viseletek[haj_viselet], 'a Hajam')
+                # Megkérdezzük, hogy szeret-e
+                time.sleep(3)
+                szeret = eldont('Szeretsz engem? ')
+                if not szeret:
+                        print('Oké, Erre majd visszatérünk')
+                        time.sleep(4)
                                
         # Itt már kilépett a ciklusból, szóval biztos, hogy szeret
         print('Én is Szeretlek')
