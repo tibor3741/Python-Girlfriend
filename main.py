@@ -2,6 +2,7 @@ greetings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
 goodbyes = ['Viszlát','Szia','Helló']
 how_are_you = ['Jól','Fantasztikusan','Rosszul','Hiányoztál','Ha veled lehetek akkor jól'];
 how_was_your_day = ['Jó','Fantasztikus','Rossz', ]
+love_me = ['Igen','Persze','Imádlak','Naná','Szeretlek']
 #Felhasználók
 nev_adat = ['Tibor', 'tibor', 'Tibi','tibi']
 ev_adat = [19, 19, 19]
@@ -34,6 +35,8 @@ if (nev in nev_adat):
         user = user_kerdez('')
         if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
                 print(random.choice(how_was_your_day))
+        if(user=="szeretsz?"or'szeretel?'or'szeretszengem?'):
+                print(random.choice(love_me))
         else:
                 print('erre nem tudom a választ')
         #már vége a kérdezésnek
