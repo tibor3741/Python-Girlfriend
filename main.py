@@ -57,7 +57,7 @@ haj_viseletek = ['Göndör', 'Egyenes','Hullámos']
 # Kommunikációs részek
 greetings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
 goodbyes = ['Viszlát','Szia','Helló']
-how_are_you = ['Jól','Fantasztikusan' 'Rosszul', 'Hiányoztál','Ha veled lehetek akkor jól'];
+how_are_you = ['Jól','Fantasztikusan','Rosszul', 'Hiányoztál','Ha veled lehetek akkor jól'];
 how_was_your_day = ['Jó','Fantasztikus','Rossz', ]
 #Felhasználók
 nev_adat = ['Tibor', 'tibor', 'Tibi','tibi']
