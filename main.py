@@ -61,7 +61,7 @@ how_are_you = ['Jól','Fantasztikusan','Rosszul','Hiányoztál','Ha veled lehete
 how_was_your_day = ['Jó','Fantasztikus','Rossz', ]
 love_me = ['Igen','Persze','Imádlak','Naná','Szeretlek']
 #Felhasználók
-nev_adat = ['Tibor', 'tibor', 'Tibi','tibi']
+nev_adat = ['tibor','tibi']
 ev_adat = [19, 19, 19]
 
 # Fő ciklus
@@ -73,6 +73,7 @@ print(random.choice(greetings), 'az én nevem Kasszandra.')
 time.sleep(2)
 # Alapadatok
 nev = kerdez('Téged hogy hívnak? ')
+nev.lower()
 eletkor = int(kerdez('Hány éves vagy? '))
 
 #ilyen felhasználó van vagy nincs
@@ -80,27 +81,32 @@ if (nev in nev_adat):
         #van ilyen
         print('Űdvözöllek újra')
         user = user_kerdez('')
-        if(user=='szia' or 'helló' or 'Szia' or 'Helló'):
+        user.lower()
+        if(user=='szia' or 'helló'):
                 print(random.choice(greetings), nev)
         else:
                 print('erre nem tudom a választ')
         user = user_kerdez('')
+        user.lower()
         if(user=="hogy vagy?"or"hogy érzed magad?"):
                 print(random.choice(how_are_you))
         else:
                 print('erre nem tudom a választ')
         user = user_kerdez('')
+        user.lower()
         if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
                 print(random.choice(how_was_your_day))
         else:
                print('erre nem tudom a választ')
-        if(user=="szeretsz?"or'szeretel?'or'szeretszengem?'):
+        user= user_kerdez('')
+        user.lower()
+        if(user=="szeretsz?"or'szeretel?'or'szeretsz engem?'):
                 print(random.choice(love_me))
         else:
                 print('erre nem tudom a választ')
         #már vége a kérdezésnek
         print('mennem kell')
-        print('Szia')
+        print(goodbyes[1]+' '+nev)
         
         exit()
 else:
@@ -134,10 +140,10 @@ else:
         rekord(nev, eletkor)
         # Kedvenc szín
         szin = kerdez('Melyik a kedvenc színed? ')
+        szin.lower()
         print('Nekem is a', szin, 'a kedvencem')
         time.sleep(1)
         # Elköszönés
         print('Most mennem kell')
         print(random.choice(goodbyes), nev)
 exit()
-
