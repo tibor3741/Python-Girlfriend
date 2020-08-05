@@ -79,7 +79,7 @@ eletkor = int(kerdez('Hány éves vagy? '))
 #ilyen felhasználó van vagy nincs
 if (nev in nev_adat):
         #van ilyen
-        print('Űdvözöllek újra')
+        print(greetings[0]+' újra')
         user = user_kerdez('')
         user.lower()
         if(user=='szia' or 'helló'):
