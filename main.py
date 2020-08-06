@@ -103,9 +103,10 @@ if (nev in nev_adat):
         print('Űdvözöllek újra')
         user = user_kerdez('')
         user.lower()
-        if user: #if user!='' akkor 
-                for user in questdict:
-                        print(user)
+        valami = questdict.keys(user).index()
+        
+        if valami:
+                print(valami)
         else:
                 print('erre nem tudom a választ')
 
@@ -154,4 +155,5 @@ else:
         print('Most mennem kell')
         print(random.choice(goodbyes), nev)
 exit()
+
 
