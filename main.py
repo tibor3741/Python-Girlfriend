@@ -54,12 +54,33 @@ def eldont(kerdes):
 haj_szinek = ['Vörös', 'Barna','Szőke', 'Fekete', 'Ősz']
 haj_hosszok = ['Rövid', 'Vállig érő', 'Hosszú']
 haj_viseletek = ['Göndör', 'Egyenes','Hullámos']
-# Kommunikációs részek
+
+# Kommunikációs részek válasz listák
 greetings = ['Üdvözöllek','Szia','Helló','Halli','Hellóka'];
 goodbyes = ['Viszlát','Szia','Helló']
 how_are_you = ['Jól','Fantasztikusan','Rosszul','Hiányoztál','Ha veled lehetek akkor jól'];
 how_was_your_day = ['Jó','Fantasztikus','Rossz', ]
 love_me = ['Igen','Persze','Imádlak','Naná','Szeretlek']
+
+
+#kérdések és  válasz lista  hivatkozások
+questdict =	{
+  "csá": random.choice(greetings),
+  "szia": random.choice(greetings),
+  "helló": random.choice(greetings),
+  "üdv": random.choice(greetings),
+  "hogy vagy?": random.choice(how_are_you),
+  "hogy érzed magad?": random.choice(how_are_you),
+  "hogy vagy?": random.choice(how_are_you),
+  "hogy érzed magad?": random.choice(how_are_you),
+  "milyen volt a napod?": random.choice(how_was_your_day),
+  "milyen volt a heted?":random.choice(how_was_your_day),
+  "milyen napod volt?": random.choice(how_was_your_day),
+  "milyen heted volt?":random.choice(how_was_your_day),
+  "szeretsz?": random.choice(love_me),
+  "szeretsz engem?": random.choice(love_me),
+  "szeretel?": random.choice(love_me)}
+
 #Felhasználók
 nev_adat = ['tibor','tibi']
 ev_adat = [19, 19, 19]
@@ -79,31 +100,17 @@ eletkor = int(kerdez('Hány éves vagy? '))
 #ilyen felhasználó van vagy nincs
 if (nev in nev_adat):
         #van ilyen
-        print(greetings[0]+' újra')
+        print('Űdvözöllek újra')
         user = user_kerdez('')
         user.lower()
-        if(user=='szia' or 'helló'):
-                print(random.choice(greetings), nev)
+        if user: #if user!='' akkor 
+                for user in questdict:
+                        print(user)
         else:
                 print('erre nem tudom a választ')
-        user = user_kerdez('')
-        user.lower()
-        if(user=="hogy vagy?"or"hogy érzed magad?"):
-                print(random.choice(how_are_you))
-        else:
-                print('erre nem tudom a választ')
-        user = user_kerdez('')
-        user.lower()
-        if(user=="milyen volt a napod?"or"milyen volt a heted ?"or"milyen napod volt?"):
-                print(random.choice(how_was_your_day))
-        else:
-               print('erre nem tudom a választ')
-        user= user_kerdez('')
-        user.lower()
-        if(user=="szeretsz?"or'szeretel?'or'szeretsz engem?'):
-                print(random.choice(love_me))
-        else:
-                print('erre nem tudom a választ')
+
+
+       
         #már vége a kérdezésnek
         print('mennem kell')
         print(goodbyes[1]+' '+nev)
@@ -147,3 +154,4 @@ else:
         print('Most mennem kell')
         print(random.choice(goodbyes), nev)
 exit()
+
