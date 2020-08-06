@@ -69,8 +69,9 @@ quest_dict =	{
   "szia": random.choice(greetings),
   "helló": random.choice(greetings),
   "üdv": random.choice(greetings),
-  "hogy vagy?": random.choice(how_are_you),
-  "hogy érzed magad?": random.choice(how_are_you),
+  "szió": random.choice(greetings),
+  "hali": random.choice(greetings),
+  "Hellóka" random.choice(greetings),
   "hogy vagy?": random.choice(how_are_you),
   "hogy érzed magad?": random.choice(how_are_you),
   "milyen volt a napod?": random.choice(how_was_your_day),
@@ -79,7 +80,15 @@ quest_dict =	{
   "milyen heted volt?":random.choice(how_was_your_day),
   "szeretsz?": random.choice(love_me),
   "szeretsz engem?": random.choice(love_me),
-  "szeretel?": random.choice(love_me)}
+  "szeretel?": random.choice(love_me),
+  "imádsz engem?": random.choice(love_me),
+  "imádsz?": random.choice(love_me),
+  "imádasz?": random.choice(love_me),
+  "imádaol?": random.choice(love_me),
+  "imádasz engem?": random.choice(love_me), 
+  "imádol engem?":random.choice(love_me),
+}
+ 
 
 #Felhasználók
 nev_adat = ['tibor','tibi']
@@ -109,15 +118,9 @@ if (nev in nev_adat):
         szoveg=' '
         while szoveg !='viszlát':
                 szoveg = input('')
-                talalat = get_value(quest_dict, write)
+                talalat = get_value(quest_dict, szoveg)
                 print(talalat)
-
-
-
-
-       
-
-       
+                
         #már vége a kérdezésnek
         print('mennem kell')
         print(goodbyes[1]+' '+nev)
@@ -161,3 +164,4 @@ else:
         print('Most mennem kell')
         print(random.choice(goodbyes), nev)
 exit()
+
