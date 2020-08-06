@@ -86,7 +86,7 @@ quest_dict =	{
   "imádasz?": random.choice(love_me),
   "imádaol?": random.choice(love_me),
   "imádasz engem?": random.choice(love_me), 
-  "imádol engem?":random.choice(love_me),
+  "imádol engem?":random.choice(love_me)
 }
  
 
