@@ -100,16 +100,22 @@ eletkor = int(kerdez('Hány éves vagy? '))
 #ilyen felhasználó van vagy nincs
 if (nev in nev_adat):
         #van ilyen
-        print('Űdvözöllek újra')
-        user = user_kerdez('')
-        user.lower()
-        valami = quest_dict.keys(user).index()
-        
-        if valami:
-                print(valami)
-        else:
-                print('erre nem tudom a választ')
+        def get_value(quest_dict, quest_key):#kereső
+                for key,value in quest_dict.items():
+                        if key == quest_key:
+                                return value
+                return "nem értem a kérdést"
+        print ('Besszélgesünk...')#szövegbekérés
+        szoveg=' '
+        while szoveg !='viszlát':
+                szoveg = input('')
+                talalat = get_value(quest_dict, write)
+                print(talalat)
 
+
+
+
+       
 
        
         #már vége a kérdezésnek
@@ -155,5 +161,3 @@ else:
         print('Most mennem kell')
         print(random.choice(goodbyes), nev)
 exit()
-
-
