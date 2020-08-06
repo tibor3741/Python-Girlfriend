@@ -64,7 +64,7 @@ love_me = ['Igen','Persze','Imádlak','Naná','Szeretlek']
 
 
 #kérdések és  válasz lista  hivatkozások
-questdict =	{
+quest_dict =	{
   "csá": random.choice(greetings),
   "szia": random.choice(greetings),
   "helló": random.choice(greetings),
@@ -103,7 +103,7 @@ if (nev in nev_adat):
         print('Űdvözöllek újra')
         user = user_kerdez('')
         user.lower()
-        valami = questdict.keys(user).index()
+        valami = quest_dict.keys(user).index()
         
         if valami:
                 print(valami)
