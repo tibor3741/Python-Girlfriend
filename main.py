@@ -71,7 +71,7 @@ quest_dict =	{
   "üdv": random.choice(greetings),
   "szió": random.choice(greetings),
   "hali": random.choice(greetings),
-  "Hellóka" random.choice(greetings),
+  "Hellóka": random.choice(greetings),
   "hogy vagy?": random.choice(how_are_you),
   "hogy érzed magad?": random.choice(how_are_you),
   "milyen volt a napod?": random.choice(how_was_your_day),
@@ -86,7 +86,7 @@ quest_dict =	{
   "imádasz?": random.choice(love_me),
   "imádaol?": random.choice(love_me),
   "imádasz engem?": random.choice(love_me), 
-  "imádol engem?":random.choice(love_me)
+  "imádol engem?":  random.choice(love_me)
 }
  
 
