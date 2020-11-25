@@ -1,4 +1,4 @@
 # girlfriend.github.io
-This is Pyton Virtual Girlfriend
-  - Hungarian language
+This is Python Virtual Girlfriend
+  - Hungarian languages
   - Talk to you
