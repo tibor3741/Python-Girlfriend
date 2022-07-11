@@ -60,7 +60,7 @@ def guess(x):
         elif tipp > random_number:
             print('Bocsi, tipelj únra. túl nagy a tipped.')
 
-    print(f'Yay, Gratulálok. kitaláltad a {random_number} gondoltam ügyes vagy!!')
+    print(f'Yay, Gratulálok. kitaláltad a {random_number}-re gondoltam ügyes vagy!!')
 
 #Változók
 #--------------------------------------
